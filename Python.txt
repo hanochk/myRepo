@@ -1,0 +1,365 @@
+﻿Tuple - mute-able since it isn’t modifiable and used to return a multi returned values from function to be de-tupled.
+List - modifiable values (un muteable)
+Returned from a function when order isn’t important i.e no random access. When order is important then return dict
+random access example : data[12]   ->where need to acces specific cell
+
+
+* list = [,] a list of any :   len(roidb)
+* disct = {}
+* any entity is an object by nature and has methods according to its type : str or int
+   1. name = 'voc_{}_{}'.format(year, split)      # : 'voc_{}_{}'  => str   format =method
+   2. 
+
+* dictionary = {x:label, y:observe}   , 
+   * read the keys of the dictionary:    data.keys()
+   * data.keys()
+   * dict_keys(['batch_label', 'data', 'labels', 'filenames'])
+* data['data']
+* data['filenames'][1]
+====================================================
+Ascending order (with step -1) starting from index=0 five elements
+preds = (np.argsort(prob)[::-1])[0:5]
+input.get_shape()[-1]   :Take last variable (cyclic right)
+=============
+L[::-1]
+[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+kk = np.arange(1,20,0.5) = 1:0.5:20
+
+
+This also works for tuples, arrays, and strings:
+==============
+def layer_decorated(self, *args, **kwargs)  :
+*args: elipses ; **kwargs:keywords args
+
+
+==========================
+Tuples are sequences, just like lists. The differences between tuples and lists are, the tuples cannot be changed unlike lists and tuples use parentheses, whereas lists use square brackets.
+batch[0],    ..    batch[1]
+
+
+* tuple = (, , )
+* im = data['data'][0].reshape(3,32,32).transpose(1,2,0)
+* ctrl+/ = comment
+* Python script 2.x to 3.x
+   * 2to3 -w <Filname>
+* Load and save serialization of binary 
+   * pickle.load
+import cPickle
+cPickle.dump([blobs,rpn_rois],open("test.pkl","wb"))
+jj = pickle.load( open( "test.pkl", "rb" ) )  
+np.fromfile();
+
+
+plt.imshow(roidb[:,:,0])
+plt.imshow(roidb[:,:,0],cmap=plt.cm.gray_r,vmin=0, vmax=10)
+the following special forms using leading or trailing underscores are recognize (these can generally be combined with any case convention):
+* _single_leading_underscore: weak "internal use" indicator. E.g. "from M import *" does not import objects whose name starts with an underscore.
+* single_trailing_underscore_: used by convention to avoid conflicts with Python keyword, e.g.
+* Tkinter.Toplevel(master, class_='ClassName')
+* __double_leading_underscore: when naming a class attribute, invokes name mangling (inside class FooBar, __boo becomes _FooBar__boo; see below).
+* __double_leading_and_trailing_underscore__: "magic" objects or attributes that live in user-controlled namespaces. E.g. __init__, __import__ or __file__. Never invent such names; only use them as documented.
+@property  : calls method function of get and set with operation
+tf.py_func  : convert python to TF graph
+TF constants file : flags.xyz :
+
+
+Decorator(designe pattern): epilog, main, prolog
+
+
+@layer
+def conv()
+
+
+def layer(op)
+        def layer_decorator(self,...):
+        layer_output = op(self)
+        return self
+return layer_decorated
+
+
+numpy
+
+
+The best way to think about NumPy arrays is that they consist of two parts, a data buffer which is just a block of raw elements, and a view which describes how to interpret the data buffer.
+For example, if we create an array of 12 integers:
+>>> a = numpy.arange(12) >>> a array([ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+a.shape (12,)
+Here the shape (12,) means the array is indexed by a single index which runs from 0 to 11. Conceptually, if we label this single index i, the array a looks like this:
+i= 0 1 2 3 4 5 6 7 8 9 10 11 ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐ │ 0 │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 10 │ 11 │ └────┴────┴────┴────┴────┴────┴────┴────┴────┴────┴────┴────┘
+If we reshape an array, this doesn't change the data buffer. Instead, it creates a new view that describes a different way to interpret the data. So after:
+
+
+
+
+Broadcast : numpy (instead of sugmenting by reshape in matlab) - syntactic sugar
+The smaller array is “broadcast” across the larger array so that they have compatible shapes so that looping occurs in C instead of Python
+Anchors  = [1 A 4]
+Kshifts =    [K 1 4 ]
+              =  [K A 4]
+
+
+Image  (3d array): 256 x 256 x 3
+Scale  (1d array):             3
+Result (3d array): 256 x 256 x 3
+
+When either of the dimensions compared is one, the other is used. In other words, dimensions with size 1 are stretched or “copied” to match the other.
+
+
+
+
+lazy loading : only when you access the variable (roi_db) at first it invokes the loading
+
+
+list comprehension  : syntactic sugar : map + filter
+  
+
+gt_roidb = [self._load_kitti_voxel_exemplar_annotation(index)
+                    for index in self.image_index]
+
+
+Will run the for statement for the above line 
+
+
+Classes : 
+Constructor : def __init__(self
+Questions:
+How to calculate mAP, AP 
+http://stackoverflow.com/questions/35365007/tensorflow-precision-recall-f1-score-and-confusion-matrix
+
+
+supervisor
+coordinator
+Tensorboard
+
+
+Tensorflow format
+images: 4-D Tensor of shape [batch, height, width, channels] 
+Feeding with TF:Supply feed data through the feed_dict argument to a run() or eval() call that initiates computation.
+Tensor slice  : tf.slice()
+Debugging a python script with input argument
+use ipdb, first install : pip install ipdb
+Invoke from the dos prompt :
+python train_model_simple.py experiment.yaml
+Code:
+
+
+args = parser.parse_args()
+#added to catch the argument 
+ import ipdb    
+ ipdb.set_trace()
+#args parser will have the input file parameter
+ with open(args.config_file) as fp:      
+You would get a prompt
+ipdb> a
+a[rgs]
+a is one of my favorites. It prints out all the arguments the current function received.
+  ipdb> pp locals()
+
+
+Then after catching modify the code and add/modify to have fixed file opened :
+   filepath = 'experiment.yaml'
+   with open(filepath) as fp:
+
+
+2nd way:
+  
+
+Drill
+https://www.tensorflow.org/tutorials/mnist/tf/
+
+
+Python slicing: Use slicing to pull out the subarray consisting:
+http://cs231n.github.io/python-numpy-tutorial/
+
+
+
+Example
+https://www.tensorflow.org/tutorials/mnist/beginners/
+
+
+
+Install Tensor flow
+
+
+https://www.tensorflow.org/get_started/os_setup#optional-install-cuda-gpus-on-linux
+https://www.tensorflow.org/get_started/os_setup#optional_install_cuda_gpus_on_linux
+
+
+
+Images normalization
+Initialization of the coefficients 
+
+
+Numpy drill
+
+
+http://cs231n.github.io/python-numpy-tutorial/
+
+
+
+Train : CFAR 10 with NN
+
+
+Analysing : 
+Class activation maps in Keras for visualizing where deep learning networks pay attention :
+https://jacobgil.github.io/deeplearning/class-activation-maps
+
+
+
+And t-SNE metric :
+http://cs.stanford.edu/people/karpathy/cnnembed/
+Implementation : http://lvdmaaten.github.io/tsne/
+
+
+
+* Images normalization 
+* Initialization of the coefficients in many ways
+* Regularization
+* Confusion matrix
+* Test set performance 
+
+
+
+
+
+
+In TensorFlow, what is the difference between Session.run() and Tensor.eval()?
+If you have a Tensor t, calling t.eval() is equivalent to calling tf.get_default_session().run(t).
+You can make a session the default as follows:
+t = tf.constant(42.0) sess = tf.Session() with sess.as_default(): # or `with sess:` to close on exit assert sess is tf.get_default_session() assert t.eval() == sess.run(t)
+The most important difference is that you can use sess.run() to fetch the values of many tensors in the same step:
+
+
+
+How to set adaptive learning rate for GradientDescentOptimizer?
+http://stackoverflow.com/questions/33919948/how-to-set-adaptive-learning-rate-for-gradientdescentoptimizer
+
+
+TensorBoard
+python "C:\Program Files\Anaconda3\Lib\site-packages\tensorflow\tensorboard\tensorboard.py" --logdir=mnist_tf_log
+
+
+
+
+
+
+http://stackoverflow.com/questions/38008512/how-can-i-get-the-value-of-the-error-during-training-in-tensorflow
+
+
+ http://localhost:6006
+
+
+As some person say, TensorBoard is the one for that purpose.
+Here I can give you how to.
+First, let's define a function for logging min, max, mean and std-dev for the tensor.
+def variable_summaries(var, name): with tf.name_scope("summaries"): mean = tf.reduce_mean(var) tf.scalar_summary('mean/' + name, mean) with tf.name_scope('stddev'): stddev = tf.sqrt(tf.reduce_sum(tf.square(var - mean))) tf.scalar_summary('stddev/' + name, stddev) tf.scalar_summary('max/' + name, tf.reduce_max(var)) tf.scalar_summary('min/' + name, tf.reduce_min(var)) tf.histogram_summary(name, var)
+Then, create a summarize operation after you build a graph like below. This code saves weight and bias of first layer with cross-entropy in "mnist_tf_log" directory.
+variable_summaries(W_fc1, "W_fc1") variable_summaries(b_fc1, "b_fc1") tf.scalar_summary("cross_entropy:", cross_entropy) summary_op = tf.merge_all_summaries() summary_writer = tf.train.SummaryWriter("mnist_tf_log", graph_def=sess.graph)
+Now you're all set. You can log those data by returning summary_op and pass it to summary_writer.
+Here is an example for logging every 10 training steps.
+for i in range(1000): batch_xs, batch_ys = mnist.train.next_batch(100) if i % 10 == 0: _, summary_str = sess.run( [train_step, summary_op], feed_dict={x: batch_xs, y_: batch_ys}) summary_writer.add_summary(summary_str, i) summary_writer.flush() else: sess.run( train_step, feed_dict={x: batch_xs, y_: batch_ys})
+	===============================
+Variable Scope Example
+Variable Scope mechanism in TensorFlow consists of 2 main functions:
+* tf.get_variable(<name>, <shape>, <initializer>): Creates or returns a variable with a given name.
+* tf.variable_scope(<scope_name>): Manages namespaces for names passed to tf.get_variable().
+
+
+tf.variable_scope() comes into play: it pushes a namespace for variables.
+
+
+The method tf.get_variable can be used with the name of the variable as argument to either create a new variable with such name or retrieve the one that was created before. This is different from using the tf.Variable constructor which will create a new variable 
+every time it is called (and potentially add a suffix to the variable name if a variable with such name already exists). It is for the purpose of the variable sharing mechanism that a separate type of scope (variable scope) was introduced.
+As a result, we end up having two different types of scopes:
+* name scope, created using tf.name_scope or tf.op_scope
+* variable scope, created using tf.variable_scope or tf.variable_op_scope
+Both scopes have the same effect on all operations as well as variables created using tf.Variable, i.e. the scope will be added as a prefix to the operation or variable name.
+======================
+self : like this for defining method
+
+
+
+
+Logits simply means that the function operates on the unscaled output of earlier layers and that the relative scale to understand the units is linear. It means, in particular, the sum of the inputs may not equal 1, that the values are not probabilities (you might have an input of 5).
+tf.nn.softmax produces just the result of applying the softmax function to an input tensor. The softmax "squishes" the inputs so that sum(input) = 1; it's a way of normalizing. The shape of output of a softmax is the same as the input - it just normalizes the values. The outputs of softmax can be interpreted as probabilities.
+a = tf.constant(np.array([[.1, .3, .5, .9]])) print s.run(tf.nn.softmax(a)) [[ 0.16838508 0.205666 0.25120102 0.37474789]]
+In contrast, tf.nn.softmax_cross_entropy_with_logits computes the cross entropy of the result after applying the softmax function (but it does it all together in a more mathematically careful way). It's similar to the result of:
+sm = tf.nn.softmax(x) ce = cross_entropy(sm)
+The cross entropy is a summary metric - it sums across the elements. The output of tf.nn.softmax_cross_entropy_with_logits on a shape [2,5] tensor is of shape [2,1] (the first dimension is treated as the batch).
+
+
+Creating Estimators in tf.contrib.learn
+tf.contrib.learn : tentative framework by the release
+
+
+tf.get_variable(): As you can see, tf.get_variable() checks that already existing variables are not shared by accident. If you want to share them, you need to specify it by setting reuse_variables() as follows.
+
+
+
+
+
+
+Read output
+for tensor:
+bbox_pred_mean_t = sess.run(net.bbox_pred_means,feed_dict=feed_dict)
+For layer 
+bbox_pred_denorm_t = sess.run(net._predictions['bbox_pred_denorm'],feed_dict=feed_dict)
+
+
+Install Tensorflow
+
+
+sudo apt-get install tortoisehg
+sudo apt-get install python-pip python-dev
+sudo apt-get install virtualenv # install virtualenv
+virtualenv --system-site-packages ~/tensorflow # create virtualenv
+source ~/tensorflow/bin/activate
+pip install --upgrade tensorflow-gpu # install tensorflow
+
+
+sudo pip install --upgrade pip
+sudo pip install cython easydict
+sudo pip install opencv-python
+sudo apt-get install git
+sudo pip install --upgrade cython
+sudo pip install scipy
+sudo pip install matplotlib
+sudo apt-get install python-tk
+pip install pyyaml
+sudo pip install image
+
+
+mkdir ~/Projects
+cd Projects
+git clone --recursive https://github.com/smallcorgi/Faster-RCNN_TF.git
+- add -D_GLIBCXX_USE_CXX11_ABI=0 to g++ cmd in make.sh
+
+
+
+
+Build the cyto modules
+cd $FCRN_ROOT/lib
+make
+
+
+source ~/tensorflow27/bin/activate
+
+
+Running tensorboard :
+source ~/tensorflow/bin/activate
+(tensorflow) hanochk@inv-lgc02:/usr/local/cuda/lib64$ tensorboard --logdir='/home/hanochk/Projects/fasterrcnn/log/'
+
+
+Read output
+for tensor:
+bbox_pred_mean_t = sess.run(net.bbox_pred_means,feed_dict=feed_dict)
+For layer 
+bbox_pred_denorm_t = sess.run(net._predictions['bbox_pred_denorm'],feed_dict=feed_dict)
+
+
+Scatter/gather
+
+
+A sparsely-populated vector y {\displaystyle y}  holding N {\displaystyle N}  non-empty elements can be represented by two densely-populated vectors of length N ; x  containing the non-empty elements of y {\displaystyle y} , and i d x {\displaystyle idx}  giving the index in y {\displaystyle y}  where x {\displaystyle x} 's element is located. The gather of y {\displaystyle y}  into x {\displaystyle x} , denoted x ← y | x {\displaystyle x\leftarrow y|_{x}} , assigns x ( i ) = y ( i d x ( i ) ) {\displaystyle x(i)=y(idx(i))}  with i d x {\displaystyle idx}  having already been calculated.[1] A C implementation is
+for (i=0; i<N; ++i)
+ x[i] = y[idx[i]];
