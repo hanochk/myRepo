@@ -1,84 +1,81 @@
-﻿Tuple - mute-able since it isn’t modifiable and used to return a multi returned values from function to be de-tupled.
-List - modifiable values (un muteable)
+Tuple - A tuple is an (immutable) ordered list of values. A tuple is in many ways similar to a list but tuples can be used as keys in dictionaries
+Tuple - immutable since it isn’t modifiable and used to return a multi returned values from function to be de-tupled.
+t = 12345, 54321, 'hello!'
+>>> t[0]
+12345
+
+(List - modifiable values (mutable))
 Returned from a function when order isn’t important i.e no random access. When order is important then return dict
 random access example : data[12]   ->where need to acces specific cell
 
+●	list = [,] a list of any :   len(roidb)
+●	disct = {}
+●	any entity is an object by nature and has methods according to its type : str or int
+a.	name = 'voc_{}_{}'.format(year, split)      # : 'voc_{}_{}'  => str   format =method
+b.	
 
-* list = [,] a list of any :   len(roidb)
-* disct = {}
-* any entity is an object by nature and has methods according to its type : str or int
-   1. name = 'voc_{}_{}'.format(year, split)      # : 'voc_{}_{}'  => str   format =method
-   2. 
-
-* dictionary = {x:label, y:observe}   , 
-   * read the keys of the dictionary:    data.keys()
-   * data.keys()
-   * dict_keys(['batch_label', 'data', 'labels', 'filenames'])
-* data['data']
-* data['filenames'][1]
+●	dictionary = {x:label, y:observe}   , 
+○	read the keys of the dictionary:    data.keys()
+○	data.keys()
+○	dict_keys(['batch_label', 'data', 'labels', 'filenames'])
+●	data['data']
+●	data['filenames'][1]
 ====================================================
 Ascending order (with step -1) starting from index=0 five elements
 preds = (np.argsort(prob)[::-1])[0:5]
 input.get_shape()[-1]   :Take last variable (cyclic right)
-=============
-L[::-1]
-[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
-kk = np.arange(1,20,0.5) = 1:0.5:20
-
-
-This also works for tuples, arrays, and strings:
 ==============
 def layer_decorated(self, *args, **kwargs)  :
 *args: elipses ; **kwargs:keywords args
-
-
+●	*args = list of arguments -as positional arguments
+●	**kwargs = dictionary - whose keys become separate keyword arguments and the values become values of these arguments.
+The names *args and **kwargs are only by convention but there's no hard requirement to use them.
 ==========================
 Tuples are sequences, just like lists. The differences between tuples and lists are, the tuples cannot be changed unlike lists and tuples use parentheses, whereas lists use square brackets.
 batch[0],    ..    batch[1]
 
-
-* tuple = (, , )
-* im = data['data'][0].reshape(3,32,32).transpose(1,2,0)
-* ctrl+/ = comment
-* Python script 2.x to 3.x
-   * 2to3 -w <Filname>
-* Load and save serialization of binary 
-   * pickle.load
+●	tuple = (, , )
+●	im = data['data'][0].reshape(3,32,32).transpose(1,2,0)
+●	ctrl+/ = comment
+●	Python script 2.x to 3.x
+○	2to3 -w <Filname>
+=======================================
+●	Load and save serialization of binary 
+○	pickle.load
 import cPickle
 cPickle.dump([blobs,rpn_rois],open("test.pkl","wb"))
 jj = pickle.load( open( "test.pkl", "rb" ) )  
 np.fromfile();
-
-
+============= List =========================
+Slicing: In addition to accessing list elements one at a time, Python provides concise syntax to access sublists; this is known as slicing:
+======================================
 plt.imshow(roidb[:,:,0])
 plt.imshow(roidb[:,:,0],cmap=plt.cm.gray_r,vmin=0, vmax=10)
+
+
 the following special forms using leading or trailing underscores are recognize (these can generally be combined with any case convention):
-* _single_leading_underscore: weak "internal use" indicator. E.g. "from M import *" does not import objects whose name starts with an underscore.
-* single_trailing_underscore_: used by convention to avoid conflicts with Python keyword, e.g.
-* Tkinter.Toplevel(master, class_='ClassName')
-* __double_leading_underscore: when naming a class attribute, invokes name mangling (inside class FooBar, __boo becomes _FooBar__boo; see below).
-* __double_leading_and_trailing_underscore__: "magic" objects or attributes that live in user-controlled namespaces. E.g. __init__, __import__ or __file__. Never invent such names; only use them as documented.
+●	_single_leading_underscore: weak "internal use" indicator. E.g. "from M import *" does not import objects whose name starts with an underscore.
+●	single_trailing_underscore_: used by convention to avoid conflicts with Python keyword, e.g.
+●	Tkinter.Toplevel(master, class_='ClassName')
+●	__double_leading_underscore: when naming a class attribute, invokes name mangling (inside class FooBar, __boo becomes _FooBar__boo; see below).
+●	__double_leading_and_trailing_underscore__: "magic" objects or attributes that live in user-controlled namespaces. E.g. __init__, __import__ or __file__. Never invent such names; only use them as documented.
+
 @property  : calls method function of get and set with operation
 tf.py_func  : convert python to TF graph
 TF constants file : flags.xyz :
 
-
 Decorator(designe pattern): epilog, main, prolog
-
 
 @layer
 def conv()
 
-
 def layer(op)
-        def layer_decorator(self,...):
-        layer_output = op(self)
-        return self
+	def layer_decorator(self,...):
+	layer_output = op(self)
+	return self
 return layer_decorated
 
-
 numpy
-
 
 The best way to think about NumPy arrays is that they consist of two parts, a data buffer which is just a block of raw elements, and a view which describes how to interpret the data buffer.
 For example, if we create an array of 12 integers:
@@ -88,7 +85,35 @@ Here the shape (12,) means the array is indexed by a single index which runs fro
 i= 0 1 2 3 4 5 6 7 8 9 10 11 ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐ │ 0 │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 10 │ 11 │ └────┴────┴────┴────┴────┴────┴────┴────┴────┴────┴────┴────┘
 If we reshape an array, this doesn't change the data buffer. Instead, it creates a new view that describes a different way to interpret the data. So after:
 
+To explain what's going on here, you need to understand a bit about what numpy arrays are. A numpy array consists of a "raw" memory buffer that is interpreted as an array through "views". You can think of all numpy arrays as views. Views, in the numpy sense, are just a different way of slicing and dicing the same memory buffer without making a copy. A view has a shape, a data type (dtype), an offset, and strides. Where possible, indexing/reshaping operations on a numpy array will just return a view of the original memory buffer.
+This means that things like y = x.T or y = x[::2] don't use any extra memory, and don't make copies of x.
+Dtypes and views
+The same thing applies to the dtype. We can view an array as a different dtype by either setting x.dtype or by calling x.view(...).
+Index arrays
+NumPy arrays may be indexed with other arrays (or any other sequence- like object that can be converted to an array, such as lists, with the exception of tuples; see the end of this document for why this is). The use of index arrays ranges from simple, straightforward cases to complex, hard-to-understand cases. For all cases of index arrays, what is returned is a copy of the original data, not a view as one gets for slices.
+Index arrays must be of integer type. Each value in the array indicates which value in the array to use in place of the index. To illustrate:
+Warping indexing
+numpy.take in 'wrap' mode will use your indices modulo the length of the array.
+indices = range(i-2,i+3) 
+neighbourhood = A.take(indices, mode='wrap')
 
+Unless you create a new view the numpy array looks as c when reshaping it looks as d
+c.shape
+(18,)
+d.shape
+(2, 9)
+
+
+
+=============================================
+The numpy stores data in row major order.
+>>> a = np.array([[1,2,3,4], [5,6,7,8]]) >>> a.shape (2, 4) >>> a.shape = 4,2 >>> a array([[1, 2], [3, 4], [5, 6], [7, 8]])
+If you change the shape, the order of data do not change.
+If you add a 'F', you can get what you want.
+>>> b array([1, 2, 3, 4, 5, 6]) 
+>>> c = b.reshape(2,3,order='F') 
+>>> c array([[1, 3, 5], [2, 4, 6]])
+===========================================
 
 
 Broadcast : numpy (instead of sugmenting by reshape in matlab) - syntactic sugar
@@ -97,7 +122,6 @@ Anchors  = [1 A 4]
 Kshifts =    [K 1 4 ]
               =  [K A 4]
 
-
 Image  (3d array): 256 x 256 x 3
 Scale  (1d array):             3
 Result (3d array): 256 x 256 x 3
@@ -105,43 +129,130 @@ Result (3d array): 256 x 256 x 3
 When either of the dimensions compared is one, the other is used. In other words, dimensions with size 1 are stretched or “copied” to match the other.
 
 
-
-
 lazy loading : only when you access the variable (roi_db) at first it invokes the loading
 
-
 list comprehension  : syntactic sugar : map + filter
-  
+ 
 
 gt_roidb = [self._load_kitti_voxel_exemplar_annotation(index)
                     for index in self.image_index]
 
-
 Will run the for statement for the above line 
+
+nums = [0, 1, 2, 3, 4]
+even_squares = [x ** 2 for x in nums if x % 2 == 0]
+print(even_squares)  # Prints "[0, 4, 16]"
+
+Dictionary comprehension: These are similar to list comprehensions, but allow you to easily construct dictionaries. For example	
+nums = [0, 1, 2, 3, 4]
+even_num_to_square = {x: x ** 2 for x in nums if x % 2 == 0}
+print(even_num_to_square)  # Prints "{0: 0, 2: 4, 4: 16}"
+	
+Initialization of array, matrix
+c = np.arange(2,10,dtype=float)
+d = np.arange(0,10,0.2)
+e = np.ndarray(shape=(2,2), dtype=float, order='F')
+a = np.array([[1,2,3,4], [5,6,7,8], [9,10,11,12]])
+
+Tne useful trick with integer array indexing is selecting or mutating one element from each row of a matrix
+==========================
+a = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])
+b = np.array([0, 2, 0, 1])
+a[np.arange(4), b]
+=============
+a = np.arange(9.0)
+array([ 0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.])
+np.where((a<7)&(a>3))     
+ (array([4, 5, 6], dtype=int64),)
+===================
+a = np.arange(9.0).reshape(3,3)
+array([[ 0.,  1.,  2.],
+       [ 3.,  4.,  5.],
+       [ 6.,  7.,  8.]])
+
+np.where((a<7)&(a>3))
+(array([1, 1, 2], dtype=int64), array([1, 2, 0], dtype=int64))
+
+a[np.where((a<7)&(a>3))]
+array([ 4.,  5.,  6.])
+
+
+
+============
+Broadcast:
+a
+array([[ 0.,  1.,  2.],
+       [ 3.,  4.,  5.],
+       [ 6.,  7.,  8.]])
+a*2      // unlike Matlab  ; * is not dot product
+array([[  0.,   2.,   4.],
+       [  6.,   8.,  10.],
+       [ 12.,  14.,  16.]])
+====================================
+np.sum(a,axis=0)
+array([  9.,  12.,  15.])
+================================
+a.T
+array([[ 0.,  3.,  6.],
+       [ 1.,  4.,  7.],
+       [ 2.,  5.,  8.]])
+=================================
+a.ravel()   // a(:) in matlab
+============================
+v = np.array([1, 2, 3])
+array([[1, 2, 3]])
+
+    
+np.tile(v, (1, 2)) // repmat
+array([[1, 2, 3, 1, 2, 3]])
+=======================
+Broadcast:
+x = np.array([[1,2,3], [4,5,6], [7,8,9], [10, 11, 12]])
+v = np.array([1, 0, 1])
+y = x + v  # Add v to each row of x using broadcasting
+print(y)  # Prints "[[ 2  2  4]
+          #          [ 5  5  7]
+          #          [ 8  8 10]
+          #          [11 11 13]]"
+
+
+
+
+L[::-1]
+[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+kk = np.arange(1,20,0.5) = 1:0.5:20
+This also works for tuples, arrays, and strings:
+Load from file
+np.fromfile();
 
 
 Classes : 
 Constructor : def __init__(self
+Private members with underscore : self.__hours
+
 Questions:
 How to calculate mAP, AP 
 http://stackoverflow.com/questions/35365007/tensorflow-precision-recall-f1-score-and-confusion-matrix
-
 
 supervisor
 coordinator
 Tensorboard
 
-
 Tensorflow format
 images: 4-D Tensor of shape [batch, height, width, channels] 
+feature map shape : [N-batches,W,H,Channels]
+Conv layer : [W,H,Ch-in,Ch-out=Nfilters]
 Feeding with TF:Supply feed data through the feed_dict argument to a run() or eval() call that initiates computation.
 Tensor slice  : tf.slice()
+Python installs
+●	pip3 install Pillow
+●	pip3 install scipy
+●	pip3 install ipdb
 Debugging a python script with input argument
 use ipdb, first install : pip install ipdb
 Invoke from the dos prompt :
 python train_model_simple.py experiment.yaml
 Code:
-
 
 args = parser.parse_args()
 #added to catch the argument 
@@ -154,72 +265,55 @@ ipdb> a
 a[rgs]
 a is one of my favorites. It prints out all the arguments the current function received.
   ipdb> pp locals()
-
-
 Then after catching modify the code and add/modify to have fixed file opened :
    filepath = 'experiment.yaml'
    with open(filepath) as fp:
 
-
 2nd way:
-  
+ 
+Writing path w/o too much slashes
+path = r'c:\example2\media\uploads\test5.txt'
 
 Drill
 https://www.tensorflow.org/tutorials/mnist/tf/
 
-
 Python slicing: Use slicing to pull out the subarray consisting:
 http://cs231n.github.io/python-numpy-tutorial/
-
+https://docs.scipy.org/doc/numpy/user/basics.indexing.html
+Matlab vs Numpy
+https://docs.scipy.org/doc/numpy-dev/user/numpy-for-matlab-users.html
 
 
 Example
 https://www.tensorflow.org/tutorials/mnist/beginners/
 
-
-
 Install Tensor flow
-
 
 https://www.tensorflow.org/get_started/os_setup#optional-install-cuda-gpus-on-linux
 https://www.tensorflow.org/get_started/os_setup#optional_install_cuda_gpus_on_linux
 
-
-
 Images normalization
 Initialization of the coefficients 
 
-
 Numpy drill
-
 
 http://cs231n.github.io/python-numpy-tutorial/
 
-
-
 Train : CFAR 10 with NN
-
 
 Analysing : 
 Class activation maps in Keras for visualizing where deep learning networks pay attention :
 https://jacobgil.github.io/deeplearning/class-activation-maps
 
-
-
 And t-SNE metric :
 http://cs.stanford.edu/people/karpathy/cnnembed/
 Implementation : http://lvdmaaten.github.io/tsne/
 
-
-
-* Images normalization 
-* Initialization of the coefficients in many ways
-* Regularization
-* Confusion matrix
-* Test set performance 
-
-
-
+●	Images normalization 
+●	Initialization of the coefficients in many ways
+●	Regularization
+●	Confusion matrix
+●	Test set performance 
 
 
 
@@ -233,21 +327,15 @@ The most important difference is that you can use sess.run() to fetch the values
 
 How to set adaptive learning rate for GradientDescentOptimizer?
 http://stackoverflow.com/questions/33919948/how-to-set-adaptive-learning-rate-for-gradientdescentoptimizer
-
-
+Q : observed a surge change in loss while loading snapshot, Should Tensorflow store/restore intermediate state of the Adam learning ?
 TensorBoard
 python "C:\Program Files\Anaconda3\Lib\site-packages\tensorflow\tensorboard\tensorboard.py" --logdir=mnist_tf_log
 
 
 
-
-
-
 http://stackoverflow.com/questions/38008512/how-can-i-get-the-value-of-the-error-during-training-in-tensorflow
 
-
  http://localhost:6006
-
 
 As some person say, TensorBoard is the one for that purpose.
 Here I can give you how to.
@@ -258,44 +346,36 @@ variable_summaries(W_fc1, "W_fc1") variable_summaries(b_fc1, "b_fc1") tf.scalar_
 Now you're all set. You can log those data by returning summary_op and pass it to summary_writer.
 Here is an example for logging every 10 training steps.
 for i in range(1000): batch_xs, batch_ys = mnist.train.next_batch(100) if i % 10 == 0: _, summary_str = sess.run( [train_step, summary_op], feed_dict={x: batch_xs, y_: batch_ys}) summary_writer.add_summary(summary_str, i) summary_writer.flush() else: sess.run( train_step, feed_dict={x: batch_xs, y_: batch_ys})
-	===============================
+===============================
 Variable Scope Example
 Variable Scope mechanism in TensorFlow consists of 2 main functions:
-* tf.get_variable(<name>, <shape>, <initializer>): Creates or returns a variable with a given name.
-* tf.variable_scope(<scope_name>): Manages namespaces for names passed to tf.get_variable().
-
+●	tf.get_variable(<name>, <shape>, <initializer>): Creates or returns a variable with a given name.
+●	tf.variable_scope(<scope_name>): Manages namespaces for names passed to tf.get_variable().
 
 tf.variable_scope() comes into play: it pushes a namespace for variables.
-
 
 The method tf.get_variable can be used with the name of the variable as argument to either create a new variable with such name or retrieve the one that was created before. This is different from using the tf.Variable constructor which will create a new variable 
 every time it is called (and potentially add a suffix to the variable name if a variable with such name already exists). It is for the purpose of the variable sharing mechanism that a separate type of scope (variable scope) was introduced.
 As a result, we end up having two different types of scopes:
-* name scope, created using tf.name_scope or tf.op_scope
-* variable scope, created using tf.variable_scope or tf.variable_op_scope
+●	name scope, created using tf.name_scope or tf.op_scope
+●	variable scope, created using tf.variable_scope or tf.variable_op_scope
 Both scopes have the same effect on all operations as well as variables created using tf.Variable, i.e. the scope will be added as a prefix to the operation or variable name.
 ======================
 self : like this for defining method
 
 
-
-
 Logits simply means that the function operates on the unscaled output of earlier layers and that the relative scale to understand the units is linear. It means, in particular, the sum of the inputs may not equal 1, that the values are not probabilities (you might have an input of 5).
 tf.nn.softmax produces just the result of applying the softmax function to an input tensor. The softmax "squishes" the inputs so that sum(input) = 1; it's a way of normalizing. The shape of output of a softmax is the same as the input - it just normalizes the values. The outputs of softmax can be interpreted as probabilities.
-a = tf.constant(np.array([[.1, .3, .5, .9]])) print s.run(tf.nn.softmax(a)) [[ 0.16838508 0.205666 0.25120102 0.37474789]]
+a = tf.constant(np.array([[.1, .3, .5, .9]])) 
+print s.run(tf.nn.softmax(a)) [[ 0.16838508 0.205666 0.25120102 0.37474789]]
 In contrast, tf.nn.softmax_cross_entropy_with_logits computes the cross entropy of the result after applying the softmax function (but it does it all together in a more mathematically careful way). It's similar to the result of:
 sm = tf.nn.softmax(x) ce = cross_entropy(sm)
 The cross entropy is a summary metric - it sums across the elements. The output of tf.nn.softmax_cross_entropy_with_logits on a shape [2,5] tensor is of shape [2,1] (the first dimension is treated as the batch).
 
-
 Creating Estimators in tf.contrib.learn
 tf.contrib.learn : tentative framework by the release
 
-
 tf.get_variable(): As you can see, tf.get_variable() checks that already existing variables are not shared by accident. If you want to share them, you need to specify it by setting reuse_variables() as follows.
-
-
-
 
 
 
@@ -305,9 +385,7 @@ bbox_pred_mean_t = sess.run(net.bbox_pred_means,feed_dict=feed_dict)
 For layer 
 bbox_pred_denorm_t = sess.run(net._predictions['bbox_pred_denorm'],feed_dict=feed_dict)
 
-
 Install Tensorflow
-
 
 sudo apt-get install tortoisehg
 sudo apt-get install python-pip python-dev
@@ -315,7 +393,6 @@ sudo apt-get install virtualenv # install virtualenv
 virtualenv --system-site-packages ~/tensorflow # create virtualenv
 source ~/tensorflow/bin/activate
 pip install --upgrade tensorflow-gpu # install tensorflow
-
 
 sudo pip install --upgrade pip
 sudo pip install cython easydict
@@ -328,27 +405,21 @@ sudo apt-get install python-tk
 pip install pyyaml
 sudo pip install image
 
-
 mkdir ~/Projects
 cd Projects
 git clone --recursive https://github.com/smallcorgi/Faster-RCNN_TF.git
 - add -D_GLIBCXX_USE_CXX11_ABI=0 to g++ cmd in make.sh
 
 
-
-
 Build the cyto modules
 cd $FCRN_ROOT/lib
 make
 
-
 source ~/tensorflow27/bin/activate
-
 
 Running tensorboard :
 source ~/tensorflow/bin/activate
 (tensorflow) hanochk@inv-lgc02:/usr/local/cuda/lib64$ tensorboard --logdir='/home/hanochk/Projects/fasterrcnn/log/'
-
 
 Read output
 for tensor:
@@ -356,10 +427,11 @@ bbox_pred_mean_t = sess.run(net.bbox_pred_means,feed_dict=feed_dict)
 For layer 
 bbox_pred_denorm_t = sess.run(net._predictions['bbox_pred_denorm'],feed_dict=feed_dict)
 
-
 Scatter/gather
 
-
-A sparsely-populated vector y {\displaystyle y}  holding N {\displaystyle N}  non-empty elements can be represented by two densely-populated vectors of length N ; x  containing the non-empty elements of y {\displaystyle y} , and i d x {\displaystyle idx}  giving the index in y {\displaystyle y}  where x {\displaystyle x} 's element is located. The gather of y {\displaystyle y}  into x {\displaystyle x} , denoted x ← y | x {\displaystyle x\leftarrow y|_{x}} , assigns x ( i ) = y ( i d x ( i ) ) {\displaystyle x(i)=y(idx(i))}  with i d x {\displaystyle idx}  having already been calculated.[1] A C implementation is
+A sparsely-populated vector y {\displaystyle y}   holding N {\displaystyle N}   non-empty elements can be represented by two densely-populated vectors of length N ; x   containing the non-empty elements of y {\displaystyle y}  , and i d x {\displaystyle idx}   giving the index in y {\displaystyle y}   where x {\displaystyle x}  's element is located. The gather of y {\displaystyle y}   into x {\displaystyle x}  , denoted x ← y | x {\displaystyle x\leftarrow y|_{x}}  , assigns x ( i ) = y ( i d x ( i ) ) {\displaystyle x(i)=y(idx(i))}   with i d x {\displaystyle idx}   having already been calculated.[1] A C implementation is
 for (i=0; i<N; ++i)
- x[i] = y[idx[i]];
+  x[i] = y[idx[i]];
+
+
+ 
